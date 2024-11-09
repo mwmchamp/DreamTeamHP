@@ -15,6 +15,9 @@ void setup() {
 
   // Set pin D4 as input
   pinMode(4, INPUT);
+
+  // Initialize Serial communication
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -43,11 +46,13 @@ void loop() {
 
   // Read the status of pin D4 and print it to the LCD
   lcd.clear();
-  if (digitalRead(4) == HIGH) {
+  bool pinStatus = digitalRead(4) == HIGH;
+  if (pinStatus) {
     lcd.print("D4 is HIGH");
   } else {
     lcd.print("D4 is LOW");
   }
+  Serial.println(pinStatus); // Send status as boolean over UART
 
-  delay(10); // Small delay to control the fade speed
+  delay(25); // Small delay to control the fade speed
 }
