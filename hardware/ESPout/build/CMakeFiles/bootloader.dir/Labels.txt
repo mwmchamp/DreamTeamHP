@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/workspaces/DreamTeamHP/hardware/ESPout/build/CMakeFiles/bootloader
+/workspaces/DreamTeamHP/hardware/ESPout/build/CMakeFiles/bootloader.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/CMakeFiles/bootloader-complete.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/workspaces/DreamTeamHP/hardware/ESPout/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
