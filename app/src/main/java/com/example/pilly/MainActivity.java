@@ -64,6 +64,24 @@ public class MainActivity extends AppCompatActivity {
         if (newPills != null) {
             Log.d("new pill data", newPills);
         }
+        String[] splitPills = newPills.split(",");
+        for(int i = 0; i <= splitPills.length - 5; i += 5) {
+            String name = splitPills[i].trim();
+            String dose = splitPills[i + 1].trim();
+            String time = splitPills[i + 2].trim();
+            String day = splitPills[i + 3].trim();
+            boolean isTaken = splitPills[i + 4].trim().equals("true");
+            Pill currentPill = new Pill(name, dose, time, day, isTaken);
+            if (pills.isEmpty()) {
+                pills.add(currentPill);
+            } else {
+                int index = 0;
+                while (index < pills.size() && pills.get(index).getTimeToBeTaken().compareTo(currentPill.getTimeToBeTaken()) < 0) {
+                    index++;
+                }
+                pills.add(index, currentPill);
+            }
+        }
 //        pills = PillReader.readPills(getApplicationContext());
     }
 }
