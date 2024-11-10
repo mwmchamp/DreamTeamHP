@@ -4,12 +4,14 @@ public class Pill {
     private String name;
     private String dose;
     private String timeToBeTaken;
+    private String dayToTake;
     private boolean isTaken;
 
-    public Pill(String name, String dose, String timeToBeTaken, boolean isTaken) {
+    public Pill(String name, String dose, String timeToBeTaken, String dayToTake, boolean isTaken) {
         this.name = name;
         this.dose = dose;
         this.timeToBeTaken = timeToBeTaken;
+        this.dayToTake = dayToTake;
         this.isTaken = isTaken;
     }
 
@@ -37,6 +39,10 @@ public class Pill {
         this.timeToBeTaken = timeToBeTaken;
     }
 
+    public String getDayToTake() {return dayToTake; }
+
+    public void setDayToTake(String dayToTake) {this.dayToTake = dayToTake; }
+
     public boolean isTaken() {
         return isTaken;
     }
@@ -46,6 +52,6 @@ public class Pill {
     }
 
     public String toString(){
-        return name + ", " + dose + ", " + timeToBeTaken + ", " + isTaken;
+        return name + ", " + dose + ", " + timeToBeTaken + ", " + dayToTake + ", " + isTaken;
     }
 }

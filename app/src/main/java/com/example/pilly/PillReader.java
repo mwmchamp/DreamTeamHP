@@ -18,11 +18,9 @@ public class PillReader {
                 String name = splitLine[0].trim();
                 String dose = splitLine[1].trim();
                 String timeToTake = splitLine[2].trim();
-                boolean isTaken = false;
-                if(splitLine[3].trim().equals("true")) {
-                    isTaken = true;
-                }
-                com.example.pilly.Pill currentPill = new com.example.pilly.Pill(name, dose, timeToTake, isTaken);
+                String dayToTake = splitLine[3].trim();
+                boolean isTaken = splitLine[4].trim().equals("true");
+                com.example.pilly.Pill currentPill = new com.example.pilly.Pill(name, dose, timeToTake, dayToTake, isTaken);
                 if(pills.isEmpty()) {
                     pills.add(currentPill);
                 }
