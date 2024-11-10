@@ -27,15 +27,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pills = PillReader.readPills("PillData.txt");
         setContentView(R.layout.activity_main);
 
         pills = new ArrayList<>();
-//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+
+        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", "Wednesday", false));
+        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", "Wednesday", false));
+        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", "Wednesday", false));
+        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", "Wednesday", false));
+        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", "Wednesday", false));
+        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", "Wednesday", false));
         upcomingPill = findViewById(R.id.nextPillTime_textView);
         pillList = findViewById(R.id.pill_list_recycler_view);
         addPillButton = findViewById(R.id.addPill_floatingActionButton);
@@ -57,5 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(newPillIntent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pills = PillReader.readPills("PillData.txt");
     }
 }

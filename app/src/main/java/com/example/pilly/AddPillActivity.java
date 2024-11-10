@@ -96,6 +96,12 @@ public class AddPillActivity extends AppCompatActivity {
             if (saturday.isChecked()) {
                 daysOfTheWeek.add("Saturday");
             }
+
+            for (String day : daysOfTheWeek) {
+                Pill pillToAdd = new Pill(pillName.getText().toString(), dosage.getText().toString(), time.getText().toString(), day, false);
+                PillWriter.writePill(pillToAdd, "PillData.txt");
+            }
+
             Intent backToMainActivityIntent = new Intent(AddPillActivity.this, MainActivity.class);
             startActivity(backToMainActivityIntent);
         });
