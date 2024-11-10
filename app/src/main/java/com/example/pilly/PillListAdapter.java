@@ -8,11 +8,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class PillListAdapter extends RecyclerView.Adapter<PillListAdapter.ViewHolder> {
     private List<Pill> pills;
 
+    public PillListAdapter(List<Pill> pillList) {
+        pills = pillList;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -22,7 +27,9 @@ public class PillListAdapter extends RecyclerView.Adapter<PillListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.getTextView().setText((CharSequence) pills.get(position));
+        holder.getPillNameTextView().setText(pills.get(position).getName());
+        holder.getPillDoseTextView().setText(pills.get(position).getDose());
+        holder.getPillTimeTextView().setText(pills.get(position).getTimeToBeTaken());
     }
 
     @Override
@@ -31,13 +38,25 @@ public class PillListAdapter extends RecyclerView.Adapter<PillListAdapter.ViewHo
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView pillNameTextView;
+        private final TextView pillTimeTextView;
+        private final TextView pillDoseTextView;
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.pill_name);
+            pillNameTextView = view.findViewById(R.id.pill_name);
+            pillTimeTextView = view.findViewById(R.id.timeToTakePill_TextView);
+            pillDoseTextView = view.findViewById(R.id.dosage_textview);
         }
-        public TextView getTextView() {
-            return textView;
+        public TextView getPillNameTextView() {
+            return pillNameTextView;
+        }
+
+        public TextView getPillDoseTextView() {
+            return pillDoseTextView;
+        }
+
+        public TextView getPillTimeTextView() {
+            return pillTimeTextView;
         }
     }
 }
