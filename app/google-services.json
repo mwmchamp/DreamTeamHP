@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "838171728784",
+    "project_id": "pilly-3bef7",
+    "storage_bucket": "pilly-3bef7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:838171728784:android:30e700b3eb6d5d366db115",
+        "android_client_info": {
+          "package_name": "com.example.pilly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPtUhnUaEV5GZ_RvrOqcv9nlkHwmpkb7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
