@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pills = PillReader.readPills("PillData.txt");
         setContentView(R.layout.activity_main);
 
         pills = new ArrayList<>();
@@ -53,5 +54,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(newPillIntent);
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        pills = PillReader.readPills("PillData.txt");
     }
 }
