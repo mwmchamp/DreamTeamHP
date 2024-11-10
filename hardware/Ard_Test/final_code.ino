@@ -35,7 +35,7 @@ void loop() {
 
   lcd.clear();
 
-  if (digitalRead(hvil) == HIGH) {
+  if (digitalRead(hvil) == LOW) {
     lcd.setRGB(255, 255, 0); // Yellow
     lcd.setCursor(0, 0);
     lcd.print("CASE OPEN");
