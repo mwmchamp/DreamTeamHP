@@ -30,18 +30,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pills = new ArrayList<>();
-        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
-        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
+//        pills.add(new Pill("Very Cool Pill", "Many", "9 PM", false));
         upcomingPill = findViewById(R.id.nextPillTime_textView);
         pillList = findViewById(R.id.pill_list_recycler_view);
         addPillButton = findViewById(R.id.addPill_floatingActionButton);
         pillListAdapter = new PillListAdapter(pills);
 
-        upcomingPill.setText("Next pill to be taken at " + pills.get(0).getTimeToBeTaken());
+        if (pills.size() > 0) {
+            upcomingPill.setText("Next pill to be taken at " + pills.get(0).getTimeToBeTaken());
+        } else {
+            upcomingPill.setText("Add pills to get started");
+        }
 
         pillList.setLayoutManager(new LinearLayoutManager(this));
         pillList.setAdapter(pillListAdapter);

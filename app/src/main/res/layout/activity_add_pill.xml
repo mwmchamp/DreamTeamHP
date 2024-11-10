@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
-    android:padding="16dp"
     tools:context=".AddPillActivity">
 
     <TextView
@@ -127,6 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"
@@ -138,6 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Time:"
+            android:layout_marginBottom="5dp"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -145,6 +146,8 @@
             android:id="@+id/timeSelector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:padding="10dp"
             android:text="00:00 PM"
             android:textSize="36sp" />
     </LinearLayout>
