@@ -97,12 +97,14 @@ public class AddPillActivity extends AppCompatActivity {
                 daysOfTheWeek.add("Saturday");
             }
 
+            List<Pill> newPills = new ArrayList<>();
             for (String day : daysOfTheWeek) {
                 Pill pillToAdd = new Pill(pillName.getText().toString(), dosage.getText().toString(), time.getText().toString(), day, false);
-                PillWriter.writePill(pillToAdd, "PillData.txt");
+                newPills.add(pillToAdd);
             }
 
             Intent backToMainActivityIntent = new Intent(AddPillActivity.this, MainActivity.class);
+            backToMainActivityIntent.putExtra("New pills", (CharSequence) newPills.toString());
             startActivity(backToMainActivityIntent);
         });
     }

@@ -1,6 +1,8 @@
 package com.example.pilly;
 
-public class Pill {
+import java.io.Serializable;
+
+public class Pill implements Serializable {
     private String name;
     private String dose;
     private String timeToBeTaken;

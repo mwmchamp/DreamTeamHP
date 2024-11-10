@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pills = new ArrayList<>();
-        pills = PillReader.readPills("C:\\Users\\shahd\\AndroidStudioProjects\\Pilly\\app\\src\\main\\java\\com\\example\\pilly\\PillData.txt");
+        pills = PillReader.readPills(getApplicationContext());
         setContentView(R.layout.activity_main);
 
         upcomingPill = findViewById(R.id.nextPillTime_textView);
@@ -57,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        pills = PillReader.readPills("PillData.txt");
+        Intent intent = getIntent();
+        String newPills = (String) intent.getCharSequenceExtra("New pills");
+        if (newPills != null) {
+            Log.d("new pill data", newPills);
+        }
+//        pills = PillReader.readPills(getApplicationContext());
     }
 }
