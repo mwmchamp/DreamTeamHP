@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,5 +46,12 @@ public class MainActivity extends AppCompatActivity {
         pillList.setLayoutManager(new LinearLayoutManager(this));
         pillList.setAdapter(pillListAdapter);
 
+        addPillButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newPillIntent = new Intent(MainActivity.this, AddPillActivity.class);
+                startActivity(newPillIntent);
+            }
+        });
     }
 }
