@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         pillListAdapter = new PillListAdapter(pills);
 
         if (pills.size() > 0) {
-            upcomingPill.setText("Next pill to be taken at " + pills.get(0).getTimeToBeTaken());
+            upcomingPill.setText("Next pill to be taken on " +  pills.get(0).getDayToTake() + " " + pills.get(0).getTimeToBeTaken());
         } else {
             upcomingPill.setText("Add pills to get started");
         }

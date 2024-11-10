@@ -1,6 +1,7 @@
 package com.example.pilly;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Pill implements Serializable {
     private String name;
@@ -52,6 +53,10 @@ public class Pill implements Serializable {
     public void setTaken(boolean taken) {
         isTaken = taken;
     }
+
+//    public String militaryTimeTo12Hour(String militaryTime) {
+//
+//    }
 
     public String toString(){
         return name + ", " + dose + ", " + timeToBeTaken + ", " + dayToTake + ", " + isTaken;
