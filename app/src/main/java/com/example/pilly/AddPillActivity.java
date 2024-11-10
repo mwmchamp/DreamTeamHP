@@ -57,20 +57,12 @@ public class AddPillActivity extends AppCompatActivity {
         friday.setOnClickListener(v -> daysOfTheWeek.add("Friday"));
         saturday.setOnClickListener(v -> daysOfTheWeek.add("Saturday"));
 
-        time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                int hour = c.get(Calendar.HOUR_OF_DAY);
-                int minute = c.get(Calendar.MINUTE);
-                TimePickerDialog timePickerDialog = new TimePickerDialog(AddPillActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        time.setText(hourOfDay + ":" + minute);
-                    }
-                }, hour, minute, false);
-                timePickerDialog.show();
-            }
+        time.setOnClickListener(v -> {
+            final Calendar c = Calendar.getInstance();
+            int hour = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+            TimePickerDialog timePickerDialog = new TimePickerDialog(AddPillActivity.this, (view, hourOfDay, minute1) -> time.setText(militaryTimeTo12Hour(hourOfDay+":"+ minute1)), hour, minute, false);
+            timePickerDialog.show();
         });
 
         addNewPillButton.setOnClickListener(v -> {
@@ -107,5 +99,21 @@ public class AddPillActivity extends AppCompatActivity {
             backToMainActivityIntent.putExtra("New pills", (CharSequence) newPills.toString());
             startActivity(backToMainActivityIntent);
         });
+    }
+
+    public String militaryTimeTo12Hour(String militaryTime) {
+        String[] timeParts = militaryTime.split(":");
+        int hour = Integer.parseInt(timeParts[0]);
+        String minutes = timeParts[1];
+
+        String period = hour >= 12 ? "PM" : "AM";
+
+        if (hour > 12) {
+            hour -= 12;
+        } else if (hour == 0) {
+            hour = 12;
+        }
+
+        return String.format("%d:%s %s", hour, minutes, period);
     }
 }

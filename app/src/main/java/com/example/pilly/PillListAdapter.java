@@ -29,7 +29,7 @@ public class PillListAdapter extends RecyclerView.Adapter<PillListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.getPillNameTextView().setText(pills.get(position).getName());
         holder.getPillDoseTextView().setText(pills.get(position).getDose());
-        holder.getPillTimeTextView().setText(pills.get(position).getTimeToBeTaken());
+        holder.getPillTimeTextView().setText(pills.get(position).getDayToTake().toString() + " " + militaryTimeTo12Hour(pills.get(position).getTimeToBeTaken()));
     }
 
     @Override
@@ -58,5 +58,21 @@ public class PillListAdapter extends RecyclerView.Adapter<PillListAdapter.ViewHo
         public TextView getPillTimeTextView() {
             return pillTimeTextView;
         }
+    }
+
+    public String militaryTimeTo12Hour(String militaryTime) {
+        String[] timeParts = militaryTime.split(":");
+        int hour = Integer.parseInt(timeParts[0]);
+        String minutes = timeParts[1];
+
+        String period = hour >= 12 ? "PM" : "AM";
+
+        if (hour > 12) {
+            hour -= 12;
+        } else if (hour == 0) {
+            hour = 12;
+        }
+
+        return String.format("%d:%s %s", hour, minutes, period);
     }
 }
