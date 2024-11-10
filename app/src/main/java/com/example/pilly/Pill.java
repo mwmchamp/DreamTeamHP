@@ -44,4 +44,8 @@ public class Pill {
     public void setTaken(boolean taken) {
         isTaken = taken;
     }
+
+    public String toString(){
+        return name + ", " + dose + ", " + timeToBeTaken + ", " + isTaken;
+    }
 }
