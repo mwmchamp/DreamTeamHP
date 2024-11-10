@@ -36,7 +36,8 @@ public class PillReader {
             return pills;
         } catch (FileNotFoundException e) {
             System.out.println("Could not find file \"" + filename + "\"");
-            return null;
+            LinkedList<com.example.pilly.Pill> pills = new LinkedList<com.example.pilly.Pill>();
+            return pills;
         }
     }
 
